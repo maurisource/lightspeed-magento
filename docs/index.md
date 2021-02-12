@@ -9,11 +9,16 @@ The integration between Lightspeed Retail POS and Magento unlocks an omnichannel
 Source Inventory is Lightspeed Retail >> Which means: Magento's product catalog is populated from Lightspeed Items.
 Source code is not available via GitHub as per vendor's distribution license.
 
-### 2 levels of approval: Lightspeed Retail and Magento Marketplace
+**Schema** of the default business logic workflow implemented:
+![lightspeed-Magento-integration-Scenario-design-visual-updated](https://user-images.githubusercontent.com/1178609/107824051-cd0d2700-6d4e-11eb-8754-cbae750c74aa.png)
+
+
+
+### Integration Approved by: Lightspeed Retail and Magento Marketplace
 **Lightspeed Retail** checks API level requests, checks for leaky bucket implementation, load relationship, orders creation, continuous stress on system. Partnership established allows each API Key to have their full API request allowance for maximum performance out of the box.
 **Magento Commerce** run through an elaborate panel of automated technical tests and manual test. M2EQ test, MFTF, Code Sniffer, Semantic Check, Installation and Varnish test.
 
-Although the integration utilizes data transmission is SHA256, information trasmission goes directly from the Merchant's store >> Lightspeed Retail.
+Although the integration utilizes data transmission SHA256, information trasmission goes directly from the Merchant's store >> Lightspeed Retail.
 There is no middleware interception, hence eliminating all risks of sensible order info or product info.
 There is an API Key service running within the application, which pings our server in order to refresh it's last cached token and provide a new one on request.
 
