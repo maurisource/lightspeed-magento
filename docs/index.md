@@ -1,37 +1,64 @@
-## Welcome to GitHub Pages
+# Welcome to Lightspeed Retail integration with Magento 2.
 
-You can use the [editor on GitHub](https://github.com/maurisource/lightspeed-magento/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+This guide has been written for the integration vendor name: maurisource/lightspeed only available from [Magento Commerce](https://marketplace.magento.com/maurisource-lightspeed.html) and [Maurisource Store](https://store.maurisource.com/)
+Redacted for version 1.3.62 of the integration module.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Omnichannel environment and source logic
 
-### Markdown
+The integration between Lightspeed Retail POS and Magento unlocks an omnichannel environment.
+Source Inventory is Lightspeed Retail >> Which means: Magento's product catalog is populated from Lightspeed Items.
+Source code is not available via GitHub as per vendor's distribution license.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### 2 levels of approval: Lightspeed Retail and Magento Marketplace
+**Lightspeed Retail** checks API level requests, checks for leaky bucket implementation, load relationship, orders creation, continuous stress on system. Partnership established allows each API Key to have their full API request allowance for maximum performance out of the box.
+**Magento Commerce** run through an elaborate panel of automated technical tests and manual test. M2EQ test, MFTF, Code Sniffer, Semantic Check, Installation and Varnish test.
 
-```markdown
-Syntax highlighted code block
+Although the integration utilizes data transmission is SHA256, information trasmission goes directly from the Merchant's store >> Lightspeed Retail.
+There is no middleware interception, hence eliminating all risks of sensible order info or product info.
+There is an API Key service running within the application, which pings our server in order to refresh it's last cached token and provide a new one on request.
 
-# Header 1
-## Header 2
-### Header 3
+## Automation
+Automation sync runs via CRON Schedule as per Magento's default cron:setup command.
 
-- Bulleted
-- List
+## Syncing logic explained
 
-1. Numbered
-2. List
+## Compatibility
+**stable**
+Magento-ce 2.2.x 
+Magento-ce 2.3.x
+Magento-ee 2.2.x
+Magento-ee 2.3.x
 
-**Bold** and _Italic_ and `Code` text
+**alpha**
+Magento-ce 2.4.x
+Magento-ee 2.4.x
 
-[Link](url) and ![Image](src)
-```
+# @ToDo to be redacted for this guide
+- Add product image banner
+- Product demonstration video
+- Installation using Composer
+- CRON setup
+- API Key authentication and cache
+- Attributes mapping
+- Syncing tags
+- Syncing manufacturers (Lightspeed Vendors)
+- Syncing orders
+- Manual force sync methods (admin and CLI tool)
+- SMART HASH system
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Major confirmed features added to road map
+- Add stable compatibility with PHP 7.4.0
+- Add stable compatibility with Magento Commerce 2.4.x
+- Add support for MSI (Multi Source Inventory) distributed under maurisource/lightspeed v.1.4.0 
 
-### Jekyll Themes
+### Unconfirmed business logic ideas
+- Add possibility for admin to disable some fields from sync.
+- Add possibility for admin to change their attributes mapping.
+- Add possibility for admin to add new attributes to the sync.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/maurisource/lightspeed-magento/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Module distribution channel for full transition towards composer
+Considering an option to distribute package via Composer for versions distributed outside of Magento Repository. (Currently checking GitLab public packages)
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Check out our current [documentation](https://docs.google.com/document/d/1jVT4F1kaO88IxRQ1orJS7SlFdMveVzRCxK0xpQrLZZs/edit#) or [contact support](https://maurisource.zendesk.com/hc/en-us/requests/new) and we’ll help you sort it out.
